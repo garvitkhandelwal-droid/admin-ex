@@ -2,8 +2,19 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>College__c</members>
+		<members>Lead</members>
 		<members>Student__c</members>
 		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Bypass_Opportunity_Validations</members>
+		<name>PermissionSet</name>
+	</types>
+	<types>
+		<members>Lead.abetween_the_5_8</members>
+		<members>Lead.exercise_4_1</members>
+		<members>Opportunity.Require_Next_Step_Negotiation_to_Closed</members>
+		<name>ValidationRule</name>
 	</types>
 	<version>68.0</version>
 </Package>
