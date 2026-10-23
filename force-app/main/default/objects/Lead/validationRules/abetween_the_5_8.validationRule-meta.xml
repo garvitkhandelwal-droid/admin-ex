@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>abetween_the_5_8</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(Email)),
+    CONTAINS(LOWER(MID(Email, 5, 8)), &quot;a&quot;)
+)</errorConditionFormula>
+    <errorDisplayField>Email</errorDisplayField>
+    <errorMessage>this should not contain a in between character 5 to 8</errorMessage>
+</ValidationRule>
