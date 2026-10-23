@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
-	<types>
-		<members>change_all_Open_Opportunities_to_Closed_Won</members>
-		<name>Flow</name>
-	</types>
-	<version>68.0</version>
-</Package>
