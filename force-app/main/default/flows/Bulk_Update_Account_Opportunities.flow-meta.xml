@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionCalls>
+        <name>Send_Fault_Alert_to_Admin</name>
+        <label>Send Fault Alert to Admin</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Error_Screen</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recipientAddresses</name>
+            <value>
+                <collectionElements>
+                    <stringValue>garvit.khandelwal@thinkvibes.com</stringValue>
+                </collectionElements>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>composeEmailContent</name>
+            <value>
+                <stringValue>True</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+                <stringValue>{!{!Is_Stage_Provided}.{}}Flow Error: Bulk Opportunity Update Failed ({!$User.LastName})</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>tt_AdminFaultEmailBody</elementReference>
+                <inputConfiguratorMode>Resource</inputConfiguratorMode>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionString>3.0.1</versionString>
+    </actionCalls>
     <apiVersion>68.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
@@ -99,6 +142,11 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
     </ends>
+    <ends>
+        <name>END_ELEMENT_2</name>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+    </ends>
     <environments>Default</environments>
     <interviewLabel>Bulk Update Account Opportunities {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Bulk Update Account Opportunities</label>
@@ -171,6 +219,9 @@
         <connector>
             <targetReference>END_ELEMENT_1</targetReference>
         </connector>
+        <faultConnector>
+            <targetReference>Send_Fault_Alert_to_Admin</targetReference>
+        </faultConnector>
         <inputReference>col_OpportunitiesToUpdate</inputReference>
     </recordUpdates>
     <screens>
@@ -208,6 +259,33 @@
             <fieldType>DropdownBox</fieldType>
             <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
             <isRequired>false</isRequired>
+            <styleProperties>
+                <verticalAlignment>
+                    <stringValue>top</stringValue>
+                </verticalAlignment>
+                <width>
+                    <stringValue>12</stringValue>
+                </width>
+            </styleProperties>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Error_Screen</name>
+        <label>Error Screen</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>END_ELEMENT_2</targetReference>
+        </connector>
+        <fields>
+            <name>dt_ErrorMessage</name>
+            <fieldText>&lt;p&gt;### An Error Occurred While Updating Opportunities&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;We were unable to save your updates to the selected opportunities.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Your changes have been rolled back and no records were modified.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;**System Details:**&lt;/p&gt;&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;*An administrator has been automatically notified with these details.*&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
             <styleProperties>
                 <verticalAlignment>
                     <stringValue>top</stringValue>
@@ -306,6 +384,11 @@
         </connector>
     </start>
     <status>Active</status>
+    <textTemplates>
+        <name>tt_AdminFaultEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello Administrator,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;A Flow execution failure occurred during the Opportunity bulk update process.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;User: {!$User.FirstName} {!$User.LastName} ({!$User.Username})&lt;/p&gt;&lt;p&gt;Account ID: {!recordId}&lt;/p&gt;&lt;p&gt;Timestamp: {!$Flow.CurrentDateTime}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Fault Details:&lt;/p&gt;&lt;p&gt;{!$Flow.FaultMessage}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please investigate any conflicting Validation Rules or required fields.&lt;/p&gt;</text>
+    </textTemplates>
     <variables>
         <name>col_OpportunitiesToUpdate</name>
         <dataType>SObject</dataType>
