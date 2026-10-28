@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Training Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Map their skill gaps to our specific course catalog. Send them the relevant training syllabuses to review&lt;/p&gt;</info>
+        <picklistValueName>Needs Analysis</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Great job! Send the welcome email with login credentials and class schedules to the learners&lt;/p&gt;</info>
+        <picklistValueName>Perception Analysis</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Great job! Send the welcome email with login credentials and class schedules to the learners&lt;/p&gt;</info>
+        <picklistValueName>Proposal/Price Quote</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Identify the prospect&amp;#39;s role and company. Determine if they are looking for individual upskilling or team-wide training.&lt;/p&gt;</info>
+        <picklistValueName>Prospecting</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Confirm their training budget and desired timeline. Establish exactly how many learner seats they need&lt;/p&gt;</info>
+        <picklistValueName>Qualification</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>training</recordTypeName>
+</PathAssistant>
