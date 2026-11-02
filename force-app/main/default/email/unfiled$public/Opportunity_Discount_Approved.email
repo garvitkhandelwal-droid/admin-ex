@@ -1,8 +1,0 @@
-Hi {!Opportunity.OwnerFirstName},
-
-The discount requested for opportunity "{!Opportunity.Name}" has been approved.
-
-Discount: {!Opportunity.Discount_Percentage__c}%
-Amount: {!Opportunity.Amount}
-
-You can view the opportunity here: {!Opportunity.Link}
