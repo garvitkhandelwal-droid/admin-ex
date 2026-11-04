@@ -14,10 +14,13 @@ deploy-options.json
 # LWC Jest coverage reports
 coverage/
 
+
+# Salesforce Manifest
+manifest/package.xml
 # Logs
 logs
 *.log
-npm-debug.log*
+npm-debug.log*x
 yarn-debug.log*
 yarn-error.log*
 
