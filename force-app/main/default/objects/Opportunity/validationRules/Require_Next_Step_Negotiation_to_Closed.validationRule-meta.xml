@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Next_Step_Negotiation_to_Closed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+   NOT($Permission.Bypass_Opportunity_Validations),
+    ISCHANGED(StageName),
+    ISPICKVAL(PRIORVALUE(StageName), &quot;Negotiation&quot;),
+    ISPICKVAL(StageName, &quot;Closed Won&quot;),
+    ISBLANK(NextStep)
+)</errorConditionFormula>
+    <errorDisplayField>NextStep</errorDisplayField>
+    <errorMessage>Next Step is required when moving the Opportunity from Negotiation to Closed Won.</errorMessage>
+</ValidationRule>
