@@ -1,0 +1,7 @@
+Hi {!Opportunity.OwnerFirstName},
+
+The discount requested for opportunity "{!Opportunity.Name}" has been rejected.
+
+Please review the notes in the Approval History related list or reach out to your manager.
+
+Opportunity Link: {!Opportunity.Link}
