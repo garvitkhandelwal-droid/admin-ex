@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Consulting Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Document the specific reason we lost the engagement to help refine our future consulting pricing and scoping.&lt;/p&gt;</info>
+        <picklistValueName>Closed Lost</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Success! Schedule the internal handoff and the official project kickoff meeting with the client and our delivery team.&lt;/p&gt;</info>
+        <picklistValueName>Id. Decision Makers</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Verify they have a confirmed project budget and a clear, measurable business objective for the consulting engagement&lt;/p&gt;</info>
+        <picklistValueName>Needs Analysis</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Research the client&amp;#39;s current business pain points. Identify who the primary decision-maker (economic buyer) will be&lt;/p&gt;</info>
+        <picklistValueName>Prospecting</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Present the Statement of Work (SOW). Double-check that your estimated &amp;#39;Consulting Hours&amp;#39; field is accurately filled out.&lt;/p&gt;</info>
+        <picklistValueName>Value Proposition</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Consulting</recordTypeName>
+</PathAssistant>

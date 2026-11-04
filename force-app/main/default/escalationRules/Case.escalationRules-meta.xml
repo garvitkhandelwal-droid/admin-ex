@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EscalationRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <escalationRule>
+        <fullName>High Priority 4-Hour SLA</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <businessHours>Default</businessHours>
+            <businessHoursSource>Static</businessHoursSource>
+            <criteriaItems>
+                <field>Case.Priority</field>
+                <operation>equals</operation>
+                <value>High</value>
+            </criteriaItems>
+            <escalationAction>
+                <assignedTo>rep.s@thinkvibes.com</assignedTo>
+                <assignedToType>User</assignedToType>
+                <minutesToEscalation>240</minutesToEscalation>
+                <notifyCaseOwner>false</notifyCaseOwner>
+                <notifyTo>rep.s@thinkvibes.com</notifyTo>
+                <notifyToTemplate>unfiled$public/SupportCaseAssignmentNotification</notifyToTemplate>
+            </escalationAction>
+            <escalationStartTime>CaseCreation</escalationStartTime>
+        </ruleEntry>
+    </escalationRule>
+</EscalationRules>
